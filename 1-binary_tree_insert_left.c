@@ -1,5 +1,6 @@
 #include "binary_trees.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * binary_tree_insert_left - insert value in left of parent and displace the
@@ -20,5 +21,8 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	new_node->right = NULL;
 	new_node->left = parent->left;
 	parent->left = new_node;
+	if (new_node->left != NULL)
+		new_node->left->parent = new_node;
+	puts("done");
 	return (new_node);
 }
