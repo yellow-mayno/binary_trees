@@ -24,6 +24,7 @@ static int print_t(const binary_tree_t *tree, int offset, int depth, char **s)
 		return (0);
 	is_left = (tree->parent && tree->parent->left == tree);
 	width = sprintf(b, "(%03d)", tree->n);
+	printf("%p %d\n", tree, tree->n);
 	left = print_t(tree->left, offset, depth + 1, s);
 	right = print_t(tree->right, offset + left + width, depth + 1, s);
 	for (i = 0; i < width; i++)
